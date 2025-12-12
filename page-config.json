@@ -9,8 +9,8 @@
       "url": "/",
       "title": "Home",
       "icon": "",
-      "viewPath": "Page/Home",
-      "primaryView": "Page/Home"
+      "primaryView": "Page/Home",
+      "props": {}
     },
     {
       "id": "charts",
@@ -18,8 +18,8 @@
       "url": "/charts",
       "title": "Charts",
       "icon": "",
-      "viewPath": "Page/Charts",
-      "primaryView": "Page/Charts"
+      "primaryView": "Page/Charts",
+      "props": {}
     },
     {
       "id": "alarms",
@@ -27,8 +27,8 @@
       "url": "/alarms",
       "title": "Alarms",
       "icon": "",
-      "viewPath": "Page/Alarms",
-      "primaryView": "Page/Alarms"
+      "primaryView": "Page/Alarms",
+      "props": {}
     },
     {
       "id": "sandbox1",
@@ -36,8 +36,8 @@
       "url": "/sandbox1",
       "title": "Sandbox Env1",
       "icon": "",
-      "viewPath": "Page/SandboxEnv1",
-      "primaryView": "Page/SandboxEnv1"
+      "primaryView": "Page/SandboxEnv1",
+      "props": {}
     },
     {
       "id": "dashboard",
@@ -45,8 +45,8 @@
       "url": "/dashboard",
       "title": "Dashboard",
       "icon": "",
-      "viewPath": "GeneratedDashboard",
-      "primaryView": "GeneratedDashboard"
+      "primaryView": "GeneratedDashboard",
+      "props": {}
     },
     {
       "id": "test_page",
@@ -54,8 +54,8 @@
       "url": "/test_page",
       "title": "Test Page",
       "icon": "",
-      "viewPath": "test_page",
-      "primaryView": "test_page"
+      "primaryView": "test_page",
+      "props": {}
     }
   ]
 }
