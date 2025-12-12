@@ -1,67 +1,12 @@
 {
-  "config": {
-    "defaultUrl": "/"
-  },
   "pages": [
     {
-      "id": "home",
-      "pageId": "home",
-      "url": "/",
-      "title": "Home",
-      "icon": "",
-      "viewPath": "Page/Home",
-      "primaryView": "Page/Home",
-      "props": {}
-    },
-    {
-      "id": "charts",
-      "pageId": "charts",
-      "url": "/charts",
-      "title": "Charts",
-      "icon": "",
-      "viewPath": "Page/Charts",
-      "primaryView": "Page/Charts",
-      "props": {}
-    },
-    {
-      "id": "alarms",
-      "pageId": "alarms",
-      "url": "/alarms",
-      "title": "Alarms",
-      "icon": "",
-      "viewPath": "Page/Alarms",
-      "primaryView": "Page/Alarms",
-      "props": {}
-    },
-    {
-      "id": "sandbox1",
-      "pageId": "sandbox1",
-      "url": "/sandbox1",
-      "title": "Sandbox Env1",
-      "icon": "",
-      "viewPath": "Page/SandboxEnv1",
-      "primaryView": "Page/SandboxEnv1",
-      "props": {}
-    },
-    {
-      "id": "dashboard",
-      "pageId": "dashboard",
-      "url": "/dashboard",
-      "title": "Dashboard",
-      "icon": "",
-      "viewPath": "GeneratedDashboard",
-      "primaryView": "GeneratedDashboard",
-      "props": {}
-    },
-    {
-      "id": "test_page",
-      "pageId": "test_page",
       "url": "/test_page",
-      "title": "Test Page",
-      "icon": "",
-      "viewPath": "test_page",
-      "primaryView": "test_page",
-      "props": {}
+      "viewPath": "test_page"
+    },
+    {
+      "url": "/dashboard",
+      "viewPath": "GeneratedDashboard"
     }
   ]
 }
