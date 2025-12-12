@@ -1,0 +1,28 @@
+# examples/dashboard.yaml
+meta:
+  name: "StatusDisplay"
+  rootType: "flex" # flex | coordinate
+  
+root:
+  direction: "column"
+  style:
+    padding: "10px"
+    backgroundColor: "#F0F0F0"
+
+children:
+  - type: "label"
+    name: "HeaderLabel"
+    props:
+      text: "Machine Status Overview"
+      style:
+        fontSize: "24px"
+        fontWeight: "bold"
+        color: "#333333"
+        marginBottom: "20px"
+
+  - type: "display" # Custom alias for 'ia.display.led' or similar
+    name: "StatusIndicator"
+    props:
+      value: 1
+      label: "Running"
+      color: "#00AA00"
