@@ -128,7 +128,8 @@ def validate_yaml(data):
 
 def write_resource_json(path: str):
     """Write a resource.json alongside view.json with current timestamp."""
-    now = datetime.now(timezone.utc).isoformat()
+    # Ignition expects UTC without fractional seconds
+    now = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     resource = {
         "scope": "G",
         "version": 1,

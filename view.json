@@ -1,0 +1,165 @@
+{
+  "custom": {},
+  "params": {},
+  "propConfig": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "MainHeader"
+        },
+        "position": {
+          "height": 32,
+          "width": 100,
+          "x": 0,
+          "y": 0,
+          "grow": 0,
+          "shrink": 0
+        },
+        "props": {
+          "text": "Ignition Test Page",
+          "style": {
+            "fontSize": "32px",
+            "fontWeight": "bold",
+            "color": "#222"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Description"
+        },
+        "position": {
+          "height": 32,
+          "width": 100,
+          "x": 0,
+          "y": 0,
+          "grow": 0,
+          "shrink": 0
+        },
+        "props": {
+          "text": "This is a test page for the Ignition system generated via External CLI.",
+          "style": {
+            "fontSize": "16px",
+            "color": "#555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "RefreshButton"
+        },
+        "position": {
+          "height": 32,
+          "width": 100,
+          "x": 0,
+          "y": 0,
+          "grow": 0,
+          "shrink": 0
+        },
+        "props": {
+          "text": "Refresh Data",
+          "style": {
+            "backgroundColor": "#0D6EFD",
+            "color": "#FFFFFF",
+            "padding": "8px 16px",
+            "borderRadius": "6px"
+          },
+          "onActionPerformed": [
+            {
+              "script": "system.perspective.print('Refresh clicked')"
+            }
+          ]
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "MetricRow"
+        },
+        "position": {
+          "height": 32,
+          "width": 100,
+          "x": 0,
+          "y": 0,
+          "grow": 0,
+          "shrink": 0
+        },
+        "props": {
+          "direction": "row",
+          "gap": 8,
+          "alignItems": "center",
+          "justify": "space-between",
+          "style": {
+            "padding": "10px 14px",
+            "border": "1px solid #DDD",
+            "borderRadius": "8px",
+            "backgroundColor": "#FAFAFA"
+          }
+        },
+        "type": "ia.container.flex",
+        "children": [
+          {
+            "meta": {
+              "name": "MetricLabel"
+            },
+            "position": {
+              "height": 32,
+              "width": 100,
+              "x": 0,
+              "y": 0,
+              "grow": 0,
+              "shrink": 0
+            },
+            "props": {
+              "text": "System Throughput (units/hr)",
+              "style": {
+                "fontSize": "16px",
+                "color": "#222"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "MetricValue"
+            },
+            "position": {
+              "height": 32,
+              "width": 100,
+              "x": 0,
+              "y": 0,
+              "grow": 0,
+              "shrink": 0
+            },
+            "props": {
+              "value": 1234,
+              "label": "",
+              "color": "#00AA00",
+              "style": {
+                "fontSize": "20px",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.led"
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {},
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "20px",
+        "gap": "12px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
