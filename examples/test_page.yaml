@@ -7,7 +7,7 @@ root:
   direction: "column"
   style:
     padding: "20px"
-    gap: "10px"
+    gap: "12px"
 
 children:
   # H1 Equivalent
@@ -28,3 +28,47 @@ children:
       style:
         fontSize: "16px"
         color: "#555"
+
+  # Primary Action
+  - type: "button"
+    name: "RefreshButton"
+    props:
+      text: "Refresh Data"
+      style:
+        backgroundColor: "#0D6EFD"
+        color: "#FFFFFF"
+        padding: "8px 16px"
+        borderRadius: "6px"
+      # Example binding placeholder; swap tag/path as needed
+      onActionPerformed:
+        - script: "system.perspective.print('Refresh clicked')"
+
+  # Numeric Display with label/value
+  - type: "container"
+    name: "MetricRow"
+    props:
+      direction: "row"
+      alignItems: "center"
+      justify: "space-between"
+      style:
+        padding: "10px 14px"
+        border: "1px solid #DDD"
+        borderRadius: "8px"
+        backgroundColor: "#FAFAFA"
+    children:
+      - type: "label"
+        name: "MetricLabel"
+        props:
+          text: "System Throughput (units/hr)"
+          style:
+            fontSize: "16px"
+            color: "#222"
+      - type: "display"
+        name: "MetricValue"
+        props:
+          value: 1234
+          label: ""
+          color: "#00AA00"
+          style:
+            fontSize: "20px"
+            fontWeight: "bold"

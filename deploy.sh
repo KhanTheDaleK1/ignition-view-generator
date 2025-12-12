@@ -29,15 +29,50 @@ docker exec $CONTAINER mkdir -p "$IGNITION_PATH"
 
 echo "[3] Deploying to Container..."
 docker cp view.json "$CONTAINER:$IGNITION_PATH/view.json"
+docker cp "$DIR/resource.json" "$CONTAINER:$IGNITION_PATH/resource.json"
+
+# Fix Permissions for View
+echo "[3.1] Fixing View Permissions..."
+docker exec -u 0 $CONTAINER chown -R ignition:ignition "$IGNITION_PATH"
 
 # Check for Page Config and Deploy
-PAGE_CONFIG="$DIR/page-config.json"
-TARGET_PAGE_CONFIG="/usr/local/bin/ignition/data/projects/$PROJECT/com.inductiveautomation.perspective/page-config.json"
+PAGE_CONFIG="$DIR/config.json"
+TARGET_PAGE_CONFIG="/usr/local/bin/ignition/data/projects/$PROJECT/com.inductiveautomation.perspective/page-config/config.json"
 
 if [ -f "$PAGE_CONFIG" ]; then
     echo "[3.5] Updating Page Configuration..."
     docker cp "$PAGE_CONFIG" "$CONTAINER:$TARGET_PAGE_CONFIG"
+    docker exec -u 0 $CONTAINER chown ignition:ignition "$TARGET_PAGE_CONFIG"
+    # Update page-config/resource.json with fresh timestamp to ensure gateway picks up changes
+    TMP_RES=$(mktemp)
+    python3 - "$TMP_RES" <<'PY'
+import json, sys
+from datetime import datetime, timezone
+out_path = sys.argv[1]
+now = datetime.now(timezone.utc).isoformat()
+payload = {
+    "scope": "G",
+    "version": 1,
+    "restricted": False,
+    "overridable": True,
+    "files": ["config.json"],
+    "attributes": {
+        "lastModification": {"actor": "external-tool", "timestamp": now},
+        "lastModificationSignature": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+}
+with open(out_path, "w") as f:
+    json.dump(payload, f, indent=2)
+PY
+    docker cp "$TMP_RES" "$CONTAINER:/usr/local/bin/ignition/data/projects/$PROJECT/com.inductiveautomation.perspective/page-config/resource.json"
+    rm "$TMP_RES"
+    docker exec -u 0 $CONTAINER chown ignition:ignition "/usr/local/bin/ignition/data/projects/$PROJECT/com.inductiveautomation.perspective/page-config/resource.json"
+    echo "[3.6] Touching page-config to trigger rescan..."
+    docker exec -u 0 $CONTAINER sh -c "touch $TARGET_PAGE_CONFIG /usr/local/bin/ignition/data/projects/$PROJECT/com.inductiveautomation.perspective/page-config/resource.json"
 fi
+
+echo "[3.7] Touching view to trigger rescan..."
+docker exec $CONTAINER sh -c "touch $IGNITION_PATH/view.json $IGNITION_PATH/resource.json"
 
 echo "[4] Deployment Complete!"
 echo "    Check: http://localhost:8088/data/perspective/client/$PROJECT/$VIEW_NAME"
