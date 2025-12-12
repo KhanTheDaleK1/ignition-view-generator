@@ -1,0 +1,30 @@
+# examples/test_page.yaml
+meta:
+  name: "TestPage"
+  rootType: "flex"
+
+root:
+  direction: "column"
+  style:
+    padding: "20px"
+    gap: "10px"
+
+children:
+  # H1 Equivalent
+  - type: "label"
+    name: "MainHeader"
+    props:
+      text: "Ignition Test Page"
+      style:
+        fontSize: "32px"
+        fontWeight: "bold"
+        color: "#222"
+  
+  # Paragraph Equivalent
+  - type: "label"
+    name: "Description"
+    props:
+      text: "This is a test page for the Ignition system generated via External CLI."
+      style:
+        fontSize: "16px"
+        color: "#555"

@@ -1,0 +1,12 @@
+{
+  "pages": [
+    {
+      "url": "/test_page",
+      "viewPath": "test_page"
+    },
+    {
+      "url": "/dashboard",
+      "viewPath": "GeneratedDashboard"
+    }
+  ]
+}

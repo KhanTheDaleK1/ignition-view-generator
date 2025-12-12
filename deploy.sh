@@ -4,13 +4,21 @@
 # Resolve Script Directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# Arguments
+INPUT_FILE="${1:-$DIR/examples/dashboard.yaml}"
+
+# Derive View Name from Filename (e.g., "test_page.yaml" -> "test_page")
+FILENAME=$(basename -- "$INPUT_FILE")
+VIEW_NAME="${FILENAME%.*}"
+
 PROJECT="OT_Sandbox"
-VIEW_NAME="GeneratedDashboard"
 CONTAINER="ignition_scada"
 IGNITION_PATH="/usr/local/bin/ignition/data/projects/$PROJECT/com.inductiveautomation.perspective/views/$VIEW_NAME"
 
-echo "[1] Compiling YAML..."
-python3 "$DIR/generator.py" "$DIR/examples/dashboard.yaml"
+echo "[1] Compiling YAML: $INPUT_FILE"
+echo "    Target View: $VIEW_NAME"
+
+python3 "$DIR/generator.py" "$INPUT_FILE"
 if [ $? -ne 0 ]; then
     echo "Error: Compilation failed."
     exit 1
@@ -20,7 +28,6 @@ echo "[2] Ensuring Target Directory Exists..."
 docker exec $CONTAINER mkdir -p "$IGNITION_PATH"
 
 echo "[3] Deploying to Container..."
-# The generator outputs view.json in the CWD, we need to move it
 docker cp view.json "$CONTAINER:$IGNITION_PATH/view.json"
 
 echo "[4] Deployment Complete!"
