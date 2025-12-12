@@ -9,6 +9,7 @@
       "url": "/",
       "title": "Home",
       "icon": "",
+      "viewPath": "Page/Home",
       "primaryView": "Page/Home",
       "props": {}
     },
@@ -18,6 +19,7 @@
       "url": "/charts",
       "title": "Charts",
       "icon": "",
+      "viewPath": "Page/Charts",
       "primaryView": "Page/Charts",
       "props": {}
     },
@@ -27,6 +29,7 @@
       "url": "/alarms",
       "title": "Alarms",
       "icon": "",
+      "viewPath": "Page/Alarms",
       "primaryView": "Page/Alarms",
       "props": {}
     },
@@ -36,6 +39,7 @@
       "url": "/sandbox1",
       "title": "Sandbox Env1",
       "icon": "",
+      "viewPath": "Page/SandboxEnv1",
       "primaryView": "Page/SandboxEnv1",
       "props": {}
     },
@@ -45,6 +49,7 @@
       "url": "/dashboard",
       "title": "Dashboard",
       "icon": "",
+      "viewPath": "GeneratedDashboard",
       "primaryView": "GeneratedDashboard",
       "props": {}
     },
@@ -54,6 +59,7 @@
       "url": "/test_page",
       "title": "Test Page",
       "icon": "",
+      "viewPath": "test_page",
       "primaryView": "test_page",
       "props": {}
     }
