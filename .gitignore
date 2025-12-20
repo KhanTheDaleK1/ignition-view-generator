@@ -1,0 +1,28 @@
+# General
+.DS_Store
+.env
+.venv
+/tmp
+*.log
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+.coverage.*
+.hypothesis/
+
+# Generated Files
+view.json
+resource.json
+page-config.resource.json
+tmp_test_home.json # explicitly ignore this temporary file
