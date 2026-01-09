@@ -99,7 +99,7 @@ view_data = {
             "meta": { "name": "SearchInput" },
             "position": { "basis": "250px", "grow": 1 },
             "propConfig": {
-              "props.value": {
+              "props.text": {
                 "binding": { "config": { "bidirectional": True, "path": "view.custom.searchText" }, "type": "property" }
               }
             },
