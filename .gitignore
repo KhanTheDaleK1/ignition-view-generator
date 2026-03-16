@@ -26,3 +26,4 @@ view.json
 resource.json
 page-config.resource.json
 tmp_test_home.json # explicitly ignore this temporary file
+GEMINI.md
